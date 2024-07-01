@@ -11,7 +11,7 @@ model = torch.hub.load('WongKinYiu/yolov7', 'custom', path_or_model=model_path, 
 # Streamlit app
 st.title("Fine-tuned YOLOv7")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
@@ -20,7 +20,7 @@ if uploaded_file is not None:
     st.write("Classifying...")
 
     # Display loading spinner
-    with st.spinner('Wait for it...'):
+    with st.spinner('Please wait...'):
         # Perform inference
         results = model(image)
 
